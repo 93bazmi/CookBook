@@ -12,6 +12,7 @@ Setting Up:
 .env file in folder Backend
 
 DATABASE_URL=[in chat] // https://console.neon.tech/app/
+
 API_KEY=[spoonacular api] // https://spoonacular.com/food-api
 
 Navigate to the backend directory:
