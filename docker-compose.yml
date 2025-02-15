@@ -1,5 +1,9 @@
+version: "3.8"
+
 services:
   frontend:
+    image: cookbook-frontend
+    container_name: cookbook-frontend
     build: ./frontend
     ports:
       - "5173:5173"
@@ -14,6 +18,8 @@ services:
     tty: true
 
   backend:
+    image: cookbook-backend
+    container_name: cookbook-backend
     build: ./backend
     ports:
       - "3000:3000"
@@ -31,6 +37,7 @@ services:
 
   db:
     image: postgres:latest
+    container_name: cookbook-db
     restart: always
     ports:
       - "5432:5432"
@@ -43,6 +50,7 @@ services:
 
   pgadmin:
     image: dpage/pgadmin4
+    container_name: cookbook-pgadmin
     restart: always
     ports:
       - "5050:80"
@@ -56,6 +64,7 @@ services:
 
   redis:
     image: redis:latest
+    container_name: cookbook-redis
     restart: always
     ports:
       - "6379:6379"
