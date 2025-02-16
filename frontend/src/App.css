@@ -1,52 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Neucha&display=swap');
+
 #root {
-  font-family:Arial, Helvetica, sans-serif;
+  /* font-family:; */
+  font-family: "Neucha", serif;
 }
 
 body {
   /* padding-top: 5em; */
   padding-bottom: 5em;
   height: 100vh;
-  /* background-color: rgb(237, 250, 250); */
+  background-color: #FFF2E1;
 }
 
 /* Space margin */
-/* @media (min-width: 768px) {
+@media (min-width: 768px) {
   body {
     margin-left: 10em;
     margin-right: 10em;
   }
-} */
-
-/* Tab */
-.tab-active {
-  border-bottom: 4px rgb(202, 129, 2) solid;
-  padding-bottom: 0.5em;
 }
 
 
 /******************************** Search Bar */
+
+/* Container ของฟอร์ม */
 form {
   display: flex;
-  background-color: white;
   align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 800px; /* ขนาดสูงสุด */
+  margin: 0 auto; /* ให้ฟอร์มอยู่กลางหน้าจอ */
 }
 
+/* สไตล์ของ input */
 input {
-  padding: 0.5em;
-  font-size: 2em;
-  flex: 1;
-  border: none;
-}
-
-input:focus {
+  border: 1px solid #ccc; /* ขอบบางๆ สีเทา */
   outline: none;
+  padding: 16px 15px; /* เพิ่ม padding ในแนวตั้ง (บน-ล่าง) เพื่อเพิ่มความสูง */
+  font-size: 20px;
+  font-family: "Neucha", serif;
+  border-radius: 25px; /* ขอบโค้งมน */
+  flex: 1;
+  margin-right: 20px; /* ระยะห่างระหว่าง input และปุ่ม */
+  transition: all 0.3s ease; /* เพิ่ม transition นุ่มนวล */
 }
 
-button {
-  background-color: white;
-  border: none;
-  cursor: pointer;
+/* สีของ placeholder */
+input::placeholder {
+  color: #888;
 }
+
+/* เมื่อ input มีการโฟกัส (focus) */
+input:focus {
+  border-color: #AF8260; /* เปลี่ยนสีขอบเมื่อโฟกัส */
+  background-color: #fff; /* เปลี่ยนพื้นหลังเมื่อโฟกัส */
+}
+
+/* สไตล์ของปุ่ม */
+button {
+  background-color: #E4C59E; /* สีพื้นหลังของปุ่ม */
+  border: 1px solid #e4c49e4d; /* ขอบของปุ่ม */
+  padding: 8px;
+  border-radius: 25px; /* ขอบโค้งมน */
+  cursor: pointer;
+  font-size: 10px;
+  color: #fff;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* เปลี่ยนสีปุ่มเมื่อ hover */
+button:hover {
+  background-color: #AF8260; /* สีพื้นหลังเมื่อ hover */
+  transform: translateY(-2px); /* ยกปุ่มขึ้นเล็กน้อยเมื่อ hover */
+}
+
+/* เมื่อปุ่มถูกคลิก (active) */
+button:active {
+  background-color: #AF8260; /* สีเมื่อคลิก */
+  transform: translateY(1px); /* ปรับปุ่มให้ดูลดลงเล็กน้อย */
+}
+
 
 /******************************** grid */
 .recipe-grid {
@@ -77,7 +111,7 @@ button {
 
 /* view button */
 .view-more-button {
-  font-size: 1.5em;
+  font-size: 16px;
   padding: 1em;
   font-weight: bold;
   margin: auto;
@@ -85,76 +119,198 @@ button {
 
 /******************************** Main Photo & Context */
 .app-container {
+  margin-top: 40px;
   display: flex;
   flex-direction: column;
   gap: 2em;
+  
 }
 
 .header {
   position: relative;
+
+  height: 400px;
+  background-color: #AF8260;
+  border-radius: 2em;
 }
 
-.header img {
-  width: 100%;
-  height: 500px;
-  object-fit: cover;
-  object-position: center;
-  opacity: 50%;
-  border-radius: 1em;
-}
-
-.title {
+.header .logo {
   position: absolute;
   top: 50%;
   left: 50%;
+  width: 500px;
   transform: translate(-50%, -50%);
-  color: white;
-  font-size: 2em;
+  color: #000000;
+  font-size: 5em;
   text-align: center;
-  background-color: black;
-  opacity: 80%;
+  padding: 0.5em 1.5em 0.5em 1.5em;
+}
+
+
+.img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 2000px;
+  transform: translate(-50%, -50%);
+  color: #000000;
+  font-size: 5em;
+  text-align: center;
   padding: 0.5em 1.5em 0.5em 1.5em;
 }
 
 /******************************** Card */
+
+/* Overlay */
 .overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgb(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.7);
   z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.3s ease-in-out;
 }
 
+/* Modal */
 .modal {
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 2;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  animation: modalAppear 0.3s ease-in-out;
+  max-width: 800px; /* ปรับจาก 600px เป็น 800px */
+  width: 95%; /* เพิ่มความกว้างขึ้น */
+  background-color: #fff;
+  font-size: 1.2em; /* ปรับขนาดฟอนต์โดยรวม */
 }
 
+/* Modal Header */
 .modal-header {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  background-color: #f8f8f8;
+  padding: 20px; /* เพิ่ม padding */
+  border-bottom: 1px solid #ddd;
+  font-size: 1.5em; /* ขยายขนาดฟอนต์ */
+  font-weight: 700;
+  color: #333;
 }
 
+/* Modal Content */
 .modal-content {
-  background-color: white;
-  padding: 2em;
-  border-radius: 4px;
-  max-width: 500px;
+  padding: 25px; /* เพิ่ม padding */
+  background-color: #fff;
+  color: #555;
+  font-size: 1.2em; /* ขยายขนาดฟอนต์ */
+  line-height: 1.6; /* เพิ่มระยะห่างระหว่างบรรทัด */
+  border-radius: 6px;
 }
+
+/* Close Button */
+.close-btn {
+  font-size: 32px; /* ปรับขนาดให้ใหญ่ขึ้น */
+  font-weight: 700;
+  color: #666;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.close-btn:hover {
+  color: #333;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modalAppear {
+  from {
+    transform: translate(-50%, -50%) scale(0.9);
+  }
+  to {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+
+
+
+
+
+/**************************************** Tab */
 
 .tabs {
   display: flex;
   gap: 2em;
   cursor: pointer;
+  background-color: #C8C2BC;
+  padding-left: 150px;
+  margin: 0px;
+  font-size: large;
+  /* border-radius: 4px; */
+  height: 60px;
+  
+  
 }
+
+.tab-active {
+  background-color: #D2665A;
+  
+  color: rgb(0, 0, 0);
+  font-weight: 600;
+  border-radius: 0 0 20px 20px;
+  height: 28px;
+  padding: 10px;
+  
+}
+
+/* เปลี่ยนสีปุ่มเมื่อ hover */
+.tab-active:hover {
+  background-color: #A04747; /* สีพื้นหลังเมื่อ hover */
+  transform: translateY(-1px); /* ยกปุ่มขึ้นเล็กน้อยเมื่อ hover */
+}
+
+/* เปลี่ยนสีปุ่มเมื่อ hover */
+.tab-s:hover, .tab-f:hover {
+  background-color: #D8A25E; /* สีพื้นหลังเมื่อ hover */
+  transform: translateY(-1px); /* ยกปุ่มขึ้นเล็กน้อยเมื่อ hover */
+}
+
+
+.tab-s {
+  background-color: #FADA7A;
+  height: 18px;
+  color: rgba(71, 71, 71, 0.836);
+  border-radius: 0 0 20px 20px;
+  padding: 10px;
+  
+}
+.tab-f {
+  background-color: #FADA7A;
+  height: 18px;
+  
+  color: rgba(71, 71, 71, 0.836);
+  border-radius: 0 0 20px 20px;
+  padding: 10px;
+}
+
 
 .recipe-card-title {
   display: flex;
