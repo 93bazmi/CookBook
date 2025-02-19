@@ -2,9 +2,9 @@ version: "3.8"
 
 services:
   frontend:
-    image: cookbook-frontend
+    image: martblackcat/cookbook-frontend:latest
     container_name: cookbook-frontend
-    build: ./frontend
+    
     ports:
       - "5173:5173"
     depends_on:
@@ -18,17 +18,17 @@ services:
     tty: true
 
   backend:
-    image: cookbook-backend
+    image: martblackcat/cookbook-backend:latest
     container_name: cookbook-backend
-    build: ./backend
+    
     ports:
       - "3000:3000"
     depends_on:
       - db
-      - redis
+
     environment:
       - DATABASE_URL=postgres://postgres:password@db:5432/cookbook
-      - REDIS_URL=redis://redis:6379
+
     volumes:
       - ./backend:/app
       - /app/node_modules
@@ -62,16 +62,6 @@ services:
     volumes:
       - pgadmin_data:/var/lib/pgadmin
 
-  redis:
-    image: redis:latest
-    container_name: cookbook-redis
-    restart: always
-    ports:
-      - "6379:6379"
-    volumes:
-      - redis_data:/data
-
 volumes:
   postgres_data:
   pgadmin_data:
-  redis_data:
