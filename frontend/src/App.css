@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Neucha&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Neucha&display=swap");
 
 #root {
   /* font-family:; */
@@ -9,7 +9,7 @@ body {
   /* padding-top: 5em; */
   padding-bottom: 5em;
   height: 100vh;
-  background-color: #FFF2E1;
+  background-color: #fff2e1;
 }
 
 /* Space margin */
@@ -19,7 +19,6 @@ body {
     margin-right: 10em;
   }
 }
-
 
 /******************************** Search Bar */
 
@@ -53,34 +52,35 @@ input::placeholder {
 
 /* เมื่อ input มีการโฟกัส (focus) */
 input:focus {
-  border-color: #AF8260; /* เปลี่ยนสีขอบเมื่อโฟกัส */
+  border-color: #af8260; /* เปลี่ยนสีขอบเมื่อโฟกัส */
   background-color: #fff; /* เปลี่ยนพื้นหลังเมื่อโฟกัส */
 }
 
 /* สไตล์ของปุ่ม */
 button {
-  background-color: #E4C59E; /* สีพื้นหลังของปุ่ม */
+  background-color: #e4c59e; /* สีพื้นหลังของปุ่ม */
   border: 1px solid #e4c49e4d; /* ขอบของปุ่ม */
   padding: 8px;
   border-radius: 25px; /* ขอบโค้งมน */
   cursor: pointer;
   font-size: 10px;
   color: #fff;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  transition:
+    background-color 0.3s ease,
+    transform 0.2s ease;
 }
 
 /* เปลี่ยนสีปุ่มเมื่อ hover */
 button:hover {
-  background-color: #AF8260; /* สีพื้นหลังเมื่อ hover */
+  background-color: #af8260; /* สีพื้นหลังเมื่อ hover */
   transform: translateY(-2px); /* ยกปุ่มขึ้นเล็กน้อยเมื่อ hover */
 }
 
 /* เมื่อปุ่มถูกคลิก (active) */
 button:active {
-  background-color: #AF8260; /* สีเมื่อคลิก */
+  background-color: #af8260; /* สีเมื่อคลิก */
   transform: translateY(1px); /* ปรับปุ่มให้ดูลดลงเล็กน้อย */
 }
-
 
 /******************************** grid */
 .recipe-grid {
@@ -123,29 +123,26 @@ button:active {
   display: flex;
   flex-direction: column;
   gap: 2em;
-  
 }
 
 .header {
   position: relative;
-
-  height: 400px;
-  background-color: #AF8260;
+  width: 100%;
+  height: auto; /* ❗สำคัญ */
+  padding: 40px 0; /* ใช้ padding แทน height */
+  background-color: #af8260;
   border-radius: 2em;
 }
 
 .header .logo {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 500px;
-  transform: translate(-50%, -50%);
-  color: #000000;
-  font-size: 5em;
-  text-align: center;
-  padding: 0.5em 1.5em 0.5em 1.5em;
-}
+  position: relative; /* ❗เอา absolute ออก */
+  display: block;
+  margin: 0 auto;
 
+  width: 80%; /* responsive */
+  max-width: 400px; /* จำกัดไม่ให้ใหญ่เกิน */
+  height: auto;
+}
 
 .img {
   position: absolute;
@@ -249,68 +246,58 @@ button:active {
   }
 }
 
-
-
-
-
-
 /**************************************** Tab */
 
 .tabs {
   display: flex;
   gap: 2em;
   cursor: pointer;
-  background-color: #C8C2BC;
+  background-color: #c8c2bc;
   padding-left: 150px;
   margin: 0px;
   font-size: large;
   /* border-radius: 4px; */
   height: 60px;
-  
-  
 }
 
 .tab-active {
-  background-color: #D2665A;
-  
+  background-color: #d2665a;
+
   color: rgb(0, 0, 0);
   font-weight: 600;
   border-radius: 0 0 20px 20px;
   height: 28px;
   padding: 10px;
-  
 }
 
 /* เปลี่ยนสีปุ่มเมื่อ hover */
 .tab-active:hover {
-  background-color: #A04747; /* สีพื้นหลังเมื่อ hover */
+  background-color: #a04747; /* สีพื้นหลังเมื่อ hover */
   transform: translateY(-1px); /* ยกปุ่มขึ้นเล็กน้อยเมื่อ hover */
 }
 
 /* เปลี่ยนสีปุ่มเมื่อ hover */
-.tab-s:hover, .tab-f:hover {
-  background-color: #D8A25E; /* สีพื้นหลังเมื่อ hover */
+.tab-s:hover,
+.tab-f:hover {
+  background-color: #d8a25e; /* สีพื้นหลังเมื่อ hover */
   transform: translateY(-1px); /* ยกปุ่มขึ้นเล็กน้อยเมื่อ hover */
 }
 
-
 .tab-s {
-  background-color: #FADA7A;
+  background-color: #fada7a;
   height: 18px;
   color: rgba(71, 71, 71, 0.836);
   border-radius: 0 0 20px 20px;
   padding: 10px;
-  
 }
 .tab-f {
-  background-color: #FADA7A;
+  background-color: #fada7a;
   height: 18px;
-  
+
   color: rgba(71, 71, 71, 0.836);
   border-radius: 0 0 20px 20px;
   padding: 10px;
 }
-
 
 .recipe-card-title {
   display: flex;

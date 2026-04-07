@@ -12,11 +12,24 @@ const App = () => {
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [recipes, setRecipes] = useState<Recipe[]>([]);
   const [selectedRecipe, setSelectedRecipe] = useState<Recipe | undefined>(
-    undefined
+    undefined,
   );
   const [selectedTab, setSelectedTab] = useState<Tabs>("search");
   const [favouriteRecipes, setFavouriteRecipes] = useState<Recipe[]>([]);
   const pageNumber = useRef(1);
+
+  useEffect(() => {
+    const fetchInitialRecipes = async () => {
+      try {
+        const res = await api.searchRecipes("chicken", 1); // keyword อะไรก็ได้
+        setRecipes(res.results.slice(0, 6)); // เอาแค่ 6 เมนู
+      } catch (err) {
+        console.error(err);
+      }
+    };
+
+    fetchInitialRecipes();
+  }, []);
 
   useEffect(() => {
     const fetchFavouriteRecipes = async () => {
@@ -66,7 +79,7 @@ const App = () => {
     try {
       await api.removeFavouriteRecipe(recipe);
       const updatedRecipes = favouriteRecipes.filter(
-        (favRecipe) => recipe.id !== favRecipe.id
+        (favRecipe) => recipe.id !== favRecipe.id,
       );
       setFavouriteRecipes(updatedRecipes);
     } catch (error) {
@@ -120,7 +133,7 @@ const App = () => {
             <div className="recipe-grid">
               {recipes.map((recipe) => {
                 const isFavourite = favouriteRecipes.some(
-                  (favRecipe) => recipe.id === favRecipe.id
+                  (favRecipe) => recipe.id === favRecipe.id,
                 );
 
                 return (
