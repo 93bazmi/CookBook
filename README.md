@@ -1,56 +1,94 @@
-Setting Up:
+# 📖 CookBook
 
-**Clone the Repository:**
+CookBook is a web application that helps users discover and manage food recipes.
+You can search for recipes and save your favorite dishes in one place.
 
-    git clone https://github.com/93bazmi/CookBook.git
+The recipe data is powered by the Spoonacular API.
 
-    cd CookBook
+This project is originally based on a template by **Chris Blakely** and has been redesigned, customized, and extended further including Docker integration and deployment setup.
 
---------------------------------------------------------------------------------------------------
-**Setting up the Backend:**
+## ❤️ Live Demo
 
-.env file in folder Backend
+[https://speech-to-text-zeta-inky.vercel.app](https://cook-book-three-navy.vercel.app/)
 
-DATABASE_URL=[in chat] // https://console.neon.tech/app/
+## 🚀 Features
+* Search for recipes 🔍
+* Save recipes to favorites ❤️
+* 🌐 Fetch recipe data from Spoonacular API
+* 🐳 Docker support (custom integration)
 
-API_KEY=[spoonacular api] // https://spoonacular.com/food-api
+## 🛠 Tech Stack
 
-Navigate to the backend directory:
+**Frontend**
+* React
+* Vite
 
-      cd backend
-  
-Install the necessary packages:
+**Backend**
+* Node.js
+* Express
 
-      npm install
+**Database**
+* Supabase (PostgreSQL)
 
-Prisma Setup:
+**ORM**
+* Prisma
 
-Initialize Prisma and generate the Prisma client:
+**Deployment**
 
-      npx prisma init
-  
-      npx prisma generate
-  
-  
-Start the backend server:
+* Frontend: Vercel
+* Backend: Render
 
-      npm run dev
-  
---------------------------------------------------------------------------------------------------
-**Setting up the Frontend:**
+## 🚀 Installation
 
-Navigate to the frontend directory:
+### 1. Clone the repository
 
-      cd frontend
-  
-Install the necessary packages:
+```bash
+git clone https://github.com/93bazmi/CookBook.git
+cd CookBook
+```
 
-      npm install
-  
-Start the frontend development server:
+### 2. Backend Setup
 
-      npm run dev
-  
+Create a .env file inside the backend folder:
+```bash
+DATABASE_URL=your_supabase_database_url
+API_KEY=your_spoonacular_api_key
+```
+
+Navigate to backend:
+```bash
+cd backend
+npm install
+```
+
+Setup Prisma:
+```bash
+npx prisma init
+npx prisma generate
+```
+
+Run backend:
+```bash
+npm run dev
+```
+### 3. Frontend Setup
+
+Navigate to frontend:
+```bash
+cd frontend
+npm install
+npm run dev
+```
+## 📸 Screenshots
+
+![Home](./screenshots/home.png)
+![Detail](./screenshots/detail.png)
+
+## 🙏 Credits
+* Template: https://github.com/chrisblakely01/react-node-recipe-app.git
+* Original author: Chris Blakely
+* This project has been modified, redesigned, and extended further.
+
 
 
 
