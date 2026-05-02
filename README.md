@@ -9,7 +9,7 @@ This project is originally based on a template by **Chris Blakely** and has been
 
 ## ❤️ Live Demo
 
-[https://speech-to-text-zeta-inky.vercel.app](https://cook-book-three-navy.vercel.app/)
+https://cook-book-three-navy.vercel.app
 
 ## 🚀 Features
 * Search for recipes 🔍
